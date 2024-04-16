@@ -1,11 +1,8 @@
 // Initialize Firebase with your config
 firebase.initializeApp({
-    apiKey: "AIzaSyAhWNbf8WKfUm8nF2ADQG_jpDHJpe7thD8",
-    authDomain: "plp-task.firebaseapp.com",
-    projectId: "plp-task",
-    storageBucket: "plp-task.appspot.com",
-    messagingSenderId: "296348897585",
-    appId: "1:296348897585:web:b898242093d2fd9c85e010"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
 });
 
 const db = firebase.firestore();
