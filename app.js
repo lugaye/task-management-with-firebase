@@ -1,8 +1,11 @@
 // Initialize Firebase with your config
 firebase.initializeApp({
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
+    apiKey: "AIzaSyAqpDcSarPTXrjKD_xT0oWiR0uI8k5wlXM",
+    authDomain: "waigi-apps.firebaseapp.com",
+    projectId: "waigi-apps",
+    storageBucket: "waigi-apps.appspot.com",
+    messagingSenderId: "1054431342386",
+    appId: "1:1054431342386:web:cf9a99c602cd05284bb12b"
 });
 
 const db = firebase.firestore();
@@ -11,7 +14,9 @@ const db = firebase.firestore();
 function addTask() {
     const taskInput = document.getElementById("task-input");
     const task = taskInput.value.trim();
-    if (task !== "") {
+
+    var taskId = document.getElementById("task-id").value;
+    if (task && taskId !== "") {
         db.collection("tasks").add({
             task: task,
             timestamp: firebase.firestore. FieldValue.serverTimestamp(),
@@ -31,7 +36,6 @@ function renderTasks(doc) {
     <button onclick="deleteTask('${doc.id}')">Delete</button>
     `;
     taskList.appendChild(taskItem);
-
 }
 
 // Real-time listener for tasks
@@ -50,4 +54,6 @@ db.collection("tasks")
 
 function deleteTask(id) {
     db.collection("tasks").doc(id).delete();
+
 }
+
