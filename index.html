@@ -9,8 +9,13 @@
         <body>
             <!-- Task input form -->
             <div class="task-form">
-                <input type="text" id="task-input" placeholder="Add a new task">
+                <label for="task-id">Task ID</label><br>
+                <input type="text" id="task-id"><br><br>
+                <label for="task-input">Enter Your Task</label><br>
+                <input type="text" id="task-input" placeholder="Add a new task"><br>
                 <button onclick="addTask()">Add Task</button>
+    
+        
             </div>
             <!-- Task list -->
             <ul id="task-list"></ul>
