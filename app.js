@@ -16,10 +16,10 @@ function addTask() {
     const task = taskInput.value.trim();
 
     var taskId = document.getElementById("task-id").value;
-    if (task && taskId !== "") {
+    if (taskId && task !== "") {
         db.collection("tasks").add({
             task: task,
-            taskId: task,
+            taskId: taskId,
             timestamp: firebase.firestore. FieldValue.serverTimestamp(),
         });
         taskInput.value = "";
@@ -35,6 +35,7 @@ function renderTasks(doc) {
     const taskItem = document.createElement("li");
     taskItem.className = "task-item"
     taskItem.innerHTML = `
+    <span>${doc.data().taskId}</span>
     <span>${doc.data().task}</span>
     <button onclick="deleteTask('${doc.id}')">Delete</button>
     `;
