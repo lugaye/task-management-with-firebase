@@ -19,9 +19,12 @@ function addTask() {
     if (task && taskId !== "") {
         db.collection("tasks").add({
             task: task,
+            taskId: task,
             timestamp: firebase.firestore. FieldValue.serverTimestamp(),
         });
         taskInput.value = "";
+       
+        console.log("Task Added.")
     }
 }
 
@@ -40,7 +43,7 @@ function renderTasks(doc) {
 
 // Real-time listener for tasks
 db.collection("tasks")
-.orderBy("timestamp", "desc")
+.orderBy("task", "desc")
 .onSnapshot(snapshot => {
     const changes = snapshot.docChanges();
     changes.forEach(change => {
